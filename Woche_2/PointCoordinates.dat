@@ -1,0 +1,20 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Extreme wind speeds [m/s] at three locations in 52 storm events 
+%
+% Data access at XWS catalogue: http://www.europeanwindstorms.org/
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Coordinates WGS84
+%
+% 
+% 3 Points in 1) Denmark, 2) Sweden, 3) Norway
+% 
+% Point 	 X_Coordinate	 Y_Coordinate
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+1	536594	6234901
+2	324936	6397830
+3	614800	7597946
+
