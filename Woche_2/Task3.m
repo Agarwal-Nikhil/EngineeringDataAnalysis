@@ -19,9 +19,8 @@ ws_norway=EuropeanWindStorms(:,4)
 ws_sweden=EuropeanWindStorms(:,3)
 
 storm=1:52
-
 figure(1)
-plot(storm,ws_denmark, storm,ws_norway,':',storm,ws_sweden,'--')
+plot(storm,[ws_denmark, ws_norway, ws_sweden]')
 title('Wind Speed Vs Storm')
 xlabel('Storm Event')
 ylabel('Wind speed(m/s)')
