@@ -14,20 +14,27 @@ param = lognfit(E);
 
 mu=param(1);
 var=param(2);
+CoV=sqrt(var/mu)
 
 %create seeds for the montecarlo sims
-seed=normrnd(mu*1000,var*1000,1,1000);
+seed=lognrnd(mu,var,1,1000);
 
 u = P*(L^3)./(3*seed*I);
 
 figure(1)
 subplot(1,2,1)
 hist(u,10)
+
 title('Histogram diplacement')
 subplot(1,2,2)
 cdfplot(u)
 title('CDF')
 
-figure(2)
+%figure(2)
+% Compute and plot results. The results are sorted by "Bayesian information
+% criterion".
+%[D, PD] = allfitdist(u, 'PDF');
+
+u_hat=sum(u>=40)/1000
 
 
