@@ -8,33 +8,44 @@ b = 150; %mm
 h = 250; %mm
 I = b*(h^3)/12;
 
-E
 %Fitting logn to mu and var
 param = lognfit(E);
 
 mu=param(1);
-var=param(2);
-CoV=sqrt(var/mu)
+sd=param(2);
+%CoV=
 
 %create seeds for the montecarlo sims
-seed=lognrnd(mu,var,1,1000);
+seed=lognrnd(mu,sd,1,10000);
 
 u = P*(L^3)./(3*seed*I);
 
 figure(1)
-subplot(1,2,1)
-hist(u,10)
+%normal
+subplot(2,2,1)
+histfit(u,10,'normal')
+title('Histogram diplacement Normal')
 
-title('Histogram diplacement')
-subplot(1,2,2)
+%lognormal
+subplot(2,2,2)
+histfit(u,10,'lognormal')
+title('Histogram diplacement Lognormal')
+
+%weibull
+subplot(2,2,3)
+histfit(u,10,'weibull')
+title('Histogram diplacement Weibull')
+
+subplot(2,2,4)
 cdfplot(u)
 title('CDF')
 
 %figure(2)
-% Compute and plot results. The results are sorted by "Bayesian information
-% criterion".
-%[D, PD] = allfitdist(u, 'PDF');
+Iu = u > 40;
+Pf = sum(Iu)/size(u,2)    % Probability of failure
 
-u_hat=sum(u>=40)/1000
-
+%Target sample size 
+delta_t = 0.1;              
+% new number of samples
+nsam = 1/delta_t^2/Pf
 
