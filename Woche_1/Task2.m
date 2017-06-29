@@ -1,6 +1,6 @@
 clc
 clear all;
-load 'Data Assignment.dat';
+load 'Timber.dat';
 E = Data_Assignment(1:50,5); %YoungsModulus, N/mm^2
 P = 2000; %N
 L = 4000; %mm
