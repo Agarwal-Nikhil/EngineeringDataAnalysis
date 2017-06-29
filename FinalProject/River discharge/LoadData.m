@@ -14,7 +14,8 @@ clear
 clc
 path1 = 'C:\Users\ASUS\Dropbox\GitHub\2017 SS\Data Analysis\EngineeringDataAnalysis\FinalProject\River discharge';
 path2 = 'C:\Users\lucky\Documents\GitHub\EngineeringDataAnalysis\FinalProject\River discharge\';
-filename = [path1,'\Discharge_Platting_16008506.csv'];
+path = path1;
+filename = [path,'\Discharge_Platting_16008506.csv'];
 delimiter = ';';
 startRow = 16447;
 
