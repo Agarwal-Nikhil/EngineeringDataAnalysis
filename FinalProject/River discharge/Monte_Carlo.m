@@ -80,4 +80,4 @@ text(0.5, 1,'\bf Plot of height v/s other parameters ','HorizontalAlignment' ,'c
 
 
 %% Clear unnecesary variables
-%clearvars -except DataStatusHofkirchen DataStatusPlatting Date MaxHofkirchen MaxPlatting MeanHofkirchen MeanPlatting MinHofkirchen MinPlatting final_h
+clearvars -except DataStatusHofkirchen DataStatusPlatting Date MaxHofkirchen MaxPlatting MeanHofkirchen MeanPlatting MinHofkirchen MinPlatting final_h
