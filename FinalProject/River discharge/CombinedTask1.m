@@ -9,8 +9,6 @@
     
 %% Plot TimeSeries
 figure(3)
-title('Time Series of Discharge of Isar and Danube')
-
 
 subplot(3,1,1)
 plot(StartDate:EndDate,MeanHofkirchen(AnnualPeriod),'.-b')
@@ -35,6 +33,11 @@ plot(StartDate:EndDate,MinPlatting(AnnualPeriod),'.-r')
 xlabel('Date')
 ylabel('Daily Min Discharge(m^3/s)')
 legend('Danube','Isar')
+
+ha = axes('Position',[0 0 1 1],'Xlim',[0 1],'Ylim',[0 1],'Box','off','Visible','off','Units','normalized', 'clipping' , 'off');
+
+text(0.5, 1,'\bf Time Series of Discharge of Isar and Danube','HorizontalAlignment' ,'center','VerticalAlignment', 'top')
+
 
 %% Summary Table
 Rivers={'Danube';'Isar'};
