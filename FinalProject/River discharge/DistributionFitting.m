@@ -1,4 +1,5 @@
 function DistributionFitting(EmpData, Identifier, xMaxLimit)
+    disp(['Mean and Standard Deviation of ', Identifier, ' at Plattling from 1971 to 2016']);
     mu = mean(EmpData)
     sigma = std(EmpData)
     
@@ -93,6 +94,6 @@ function DistributionFitting(EmpData, Identifier, xMaxLimit)
     hold off
 %}
 %% Loglogistic Distribution Parameters
-disp(Identifier)
+disp([Identifier])
 pwLogLogistic
 end

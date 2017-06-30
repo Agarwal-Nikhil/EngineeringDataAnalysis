@@ -2,63 +2,75 @@
 
 %% Determining unknown beta and Cr
 %'a'is a constant which represents the gauge reading corresponding to zero discharge
-a=0.590; % from Ablusstafel
+a=0.59; % from Ablusstafel
 
 %values taken from the Ablusstafel
-q1=110;
-h1=1.5;
+q1=0.972;
+h1=0;
 
-q2=252;
-h2=2.3;
+q1=1710;
+h1=5.00;
 
 % determine the the unknown
-beta=(log(q1)-log(q2))/(log(h1+a)-log(h2+a));
+beta=2%Average of all stages
 Cr=exp(log(q1)-beta*log(h1+a));
-
+%%
+%the identified distrubution is Log-logistic Distrubution with
+mu= 6.17822 ;  
+sigma = 0.167287;
 %% Monte Carlo Simulation
+
 nsam=1000;
-h=MonteCarloSim(mean(MeanPlatting),29, nsam,Cr,a,beta );
+h=MonteCarloSim(mu,sigma,nsam,Cr,a,beta );
 
 %% critical value
 h_cr=4.7;
 
 %% Compute the indicator samples:
 %  Find cases, where the height is larger than the critical value
-Iu = h > h_cr;
-if any(1)%Iu)
-    Pf = 0.8%sum(Iu)/nsam      % Probability of failure
+Iu = h >= h_cr;
+if any(Iu)
+    Pf = sum(Iu)/nsam;      % Probability of failure
+else
+    Pf=0;
 end
+
 
 %% Calculate Sample Size to keep CoV within 10%
 
 %Target sample size 
 delta_t = 0.1;              
 % new number of samples
-nsam = 1/delta_t^2/Pf;
+if Pf>0
+    nsam = 1/delta_t^2/Pf;
+else
+    nsam=1000;
+end
 nsam=round(nsam);
 %% generating nsam seeds for Q  from the distrubution
 
-h=MonteCarloSim( mean(MeanHofkirchen),69,nsam,Cr,a,beta );
+h=MonteCarloSim( mu,sigma,1000,Cr,a,beta );
 
 Iu = h > h_cr;
 if any(Iu)
     Pf = sum(Iu)/nsam;      % Probability of failure
 end
 
-final_h=mean(h);
+final_h=mean(h)
+Pf
 %% Plots to check sensitivity
 
 x=linspace(-2,2,100);
 y=linspace(-0.5,0.5,100);
 figure(10)
 subplot(2,1,1)
-plot(Cr+x,mean(MonteCarloSim( mean(MeanHofkirchen),69,nsam,Cr+x,a,beta )),'-.*r')
+plot(Cr+x,mean(MonteCarloSim( mu,sigma,nsam,Cr+x,a,beta )),'-.*r')
 xlabel('values of Cr')
 ylabel('MCS height(m)')
 
 
 subplot(2,1,2)
-plot(beta+y ,mean(MonteCarloSim( mean(MeanHofkirchen),69,nsam,Cr,a,beta+y )),'-.*r')
+plot(beta+y ,mean(MonteCarloSim(  mu,sigma,nsam,Cr,a,beta+y )),'-.*r')
 xlabel('values of beta')
 ylabel('MCS height(m)')
 

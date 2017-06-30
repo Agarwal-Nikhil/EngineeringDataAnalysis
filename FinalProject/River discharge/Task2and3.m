@@ -22,12 +22,12 @@ clear StartDate EndDate ...
     indexTemp indexTempNumber indexTempDateStr ...
     indexTempDateVec indexTempDateTime index
 %
-figure(1);
+figure(4);
 h = histogram(indexMonth,12);
     title('Annual Maximum Discharge from 1971 to 2016')
     xlabel('Months') % x-axis label
     ylabel('Frequency') % y-axis label
-FrequencyMaximumPlatting = h.Values
+%FrequencyMaximumPlatting = h.Values
 disp('Max Discharge in Platting in the period 1971 to 2016 occured the most in the months of June to August');
 %}
 %% Q3
