@@ -1,5 +1,4 @@
 %%Q2
-close all
 for Year = 1971:2016
     StartDate = datetime(Year,1,1);
     EndDate = datetime(Year,12,31);
@@ -22,9 +21,12 @@ clear StartDate EndDate ...
     indexTemp indexTempNumber indexTempDateStr ...
     indexTempDateVec indexTempDateTime index
 %
-figure(1);
+figure(4);
 h = histogram(indexMonth,12);
-FrequencyMaximumPlatting = h.Values
+    title('Distribution of Amount of Max Discharge')
+    xlabel('Amount of Max Discharge') % x-axis label
+    ylabel('Frequency') % y-axis label
+%FrequencyMaximumPlatting = h.Values
 disp('Max Height in Platting in the period 1971 to 2016 occured the most in the months of June to August');
 %}
 %% Q3

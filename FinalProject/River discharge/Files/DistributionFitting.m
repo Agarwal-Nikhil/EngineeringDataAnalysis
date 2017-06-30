@@ -1,4 +1,5 @@
 function DistributionFitting(EmpData, Identifier)
+disp(['Mean and Standard Deviation of ', Identifier])
     mu = mean(EmpData)
     sigma = std(EmpData)
     
@@ -80,7 +81,7 @@ function DistributionFitting(EmpData, Identifier)
     subplot(3,3,9)
     probplot('rayleigh',EmpData);
     
-%   ha = axes('Position',[0 0 1 1],'Xlim',[0 1],'Ylim',[0 1],'Box','off','Visible','off','Units','normalized', 'clipping' , 'off');
+    ha = axes('Position',[0 0 1 1],'Xlim',[0 1],'Ylim',[0 1],'Box','off','Visible','off','Units','normalized', 'clipping' , 'off');
     Title = ['Q-Q Plot of ',Identifier];
     text(0.5, 1,Title,'HorizontalAlignment' ,'center','VerticalAlignment', 'top')  
     hold off
