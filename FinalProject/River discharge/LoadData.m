@@ -14,12 +14,8 @@ clear
 clc
 path1 = 'C:\Users\ASUS\Dropbox\GitHub\2017 SS\Data Analysis\EngineeringDataAnalysis\FinalProject\River discharge';
 path2 = 'C:\Users\lucky\Documents\GitHub\EngineeringDataAnalysis\FinalProject\River discharge\';
-<<<<<<< HEAD
 path = path1;
 filename = [path,'\Discharge_Platting_16008506.csv'];
-=======
-filename = [path2,'\Discharge_Platting_16008506.csv'];
->>>>>>> 5b19e04630dd4760a494fbc717ff51c161b5eb43
 delimiter = ';';
 startRow = 16447;
 
@@ -127,7 +123,7 @@ clearvars filename delimiter startRow formatSpec fileID dataArray ans raw col nu
 
 %% For hofkirchen Now
 
-filename = [path2,'\Discharge_Hofkirchen_16008506.csv'];
+filename = [path,'\Discharge_Hofkirchen_16008506.csv'];
 delimiter = ';';
 startRow = 16447;
 
