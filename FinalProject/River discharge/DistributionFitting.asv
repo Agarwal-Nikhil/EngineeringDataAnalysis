@@ -52,7 +52,7 @@ function DistributionFitting(EmpData, Identifier, xMaxLimit)
     
     %% Quantile Quantile Probability plots
     figure(  'units','normalized','outerposition',[0 0 1 1]);
-    ax1 = subplot(3,3,1);
+    ax1 = subplot(1,1,1);
     probplot('weibull',EmpData);
 %   yticks([0 0.5 1000]);   
 %    
@@ -86,10 +86,14 @@ function DistributionFitting(EmpData, Identifier, xMaxLimit)
     
     ax9 = subplot(3,3,9);
     probplot('rayleigh',EmpData);
+%    yticks([0 .1 .2 .3 .4 .5 .6 .7 .8 .9 1]);
+
+    axis([ax1, ax2, ax3, ax4, ax5, ax6, ax7, ax8, ax9])
+%    linkaxes([ax1, ax2, ax3, ax4, ax5, ax6, ax7, ax8, ax9],'xy')
     
     ha = axes('Position',[0 0 1 1],'Xlim',[0 1],'Ylim',[0 1],'Box','off','Visible','off','Units','normalized', 'clipping' , 'off');
     Title = ['Q-Q Plot of ',Identifier];
-    text(0.5, 1,Title,'HorizontalAlignment' ,'center','VerticalAlignment', 'top');  
+    text(0.5, 1,Title,'HorizontalAlignment' ,'center','VerticalAlignment', 'top')  
     hold off
 %}
 %% Loglogistic Distribution Parameters
