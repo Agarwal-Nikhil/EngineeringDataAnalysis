@@ -1,5 +1,4 @@
-function DistributionFitting(EmpData, Identifier, xMaxLimit)
-    disp(['Mean and Standard Deviation of ', Identifier, ' at Plattling from 1971 to 2016']);
+function DistributionFitting(EmpData, Identifier)
     mu = mean(EmpData)
     sigma = std(EmpData)
     
@@ -52,48 +51,40 @@ function DistributionFitting(EmpData, Identifier, xMaxLimit)
     hold off
     
     %% Quantile Quantile Probability plots
-    figure(  'units','normalized','outerposition',[0 0 1 1]);
-    ax1 = subplot(3,3,1);
+    figure()
+    
+    subplot(3,3,1)
     probplot('weibull',EmpData);
-%   yticks([0 0.5 1000]);   
-%    
-    ax2 = subplot(3,3,2);
+    
+    subplot(3,3,2)
     probplot('lognormal',EmpData);
-%    yticks([0 .1 .2 .3 .4 .5 .6 .7 .8 .9 1]);   
     
-    ax3 = subplot(3,3,3);
+    subplot(3,3,3)
     probplot('normal',EmpData);
-%    yticks([0 .1 .2 .3 .4 .5 .6 .7 .8 .9 1]);   
     
-    ax4 = subplot(3,3,4);
+    subplot(3,3,4)
     probplot('half normal',EmpData);
-%    yticks([0 .1 .2 .3 .4 .5 .6 .7 .8 .9 1]);   
     
-    ax5 = subplot(3,3,5);
+    subplot(3,3,5)
     probplot('exponential',EmpData);
-%    yticks([0 .1 .2 .3 .4 .5 .6 .7 .8 .9 1]);   
     
-    ax6 = subplot(3,3,6);
+    subplot(3,3,6)
     probplot('logistic',EmpData);
-%    yticks([0 .1 .2 .3 .4 .5 .6 .7 .8 .9 1]);   
     
-    ax7 = subplot(3,3,7);
+    subplot(3,3,7)
     probplot('loglogistic',EmpData);
-%    yticks([0 .1 .2 .3 .4 .5 .6 .7 .8 .9 1]);   
     
-    ax8 = subplot(3,3,8);
+    subplot(3,3,8)
     probplot('extreme value',EmpData);
-%    yticks([0 .1 .2 .3 .4 .5 .6 .7 .8 .9 1]);   
     
-    ax9 = subplot(3,3,9);
+    subplot(3,3,9)
     probplot('rayleigh',EmpData);
     
-    ha = axes('Position',[0 0 1 1],'Xlim',[0 1],'Ylim',[0 1],'Box','off','Visible','off','Units','normalized', 'clipping' , 'off');
+%   ha = axes('Position',[0 0 1 1],'Xlim',[0 1],'Ylim',[0 1],'Box','off','Visible','off','Units','normalized', 'clipping' , 'off');
     Title = ['Q-Q Plot of ',Identifier];
-    text(0.5, 1,Title,'HorizontalAlignment' ,'center','VerticalAlignment', 'top');  
+    text(0.5, 1,Title,'HorizontalAlignment' ,'center','VerticalAlignment', 'top')  
     hold off
-%}
 %% Loglogistic Distribution Parameters
-disp([Identifier])
+disp(Identifier)
 pwLogLogistic
 end

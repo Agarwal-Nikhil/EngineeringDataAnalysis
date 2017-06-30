@@ -22,17 +22,14 @@ clear StartDate EndDate ...
     indexTemp indexTempNumber indexTempDateStr ...
     indexTempDateVec indexTempDateTime index
 %
-figure(4);
+figure(1);
 h = histogram(indexMonth,12);
-    title('Annual Maximum Discharge from 1971 to 2016')
-    xlabel('Months') % x-axis label
-    ylabel('Frequency') % y-axis label
-%FrequencyMaximumPlatting = h.Values
-disp('Max Discharge in Platting in the period 1971 to 2016 occured the most in the months of June to August');
+FrequencyMaximumPlatting = h.Values
+disp('Max Height in Platting in the period 1971 to 2016 occured the most in the months of June to August');
 %}
 %% Q3
 %AnnualMeanHeight
-DistributionFitting(AnnualMeanPlatting','Annual Mean Discharge', 250);
+DistributionFitting(AnnualMeanPlatting','Annual Mean Discharge');
 
 %AnnualMaxHeight
-DistributionFitting(AnnualMaxPlatting','Annual Max Discharge', 1500);
+DistributionFitting(AnnualMaxPlatting','Annual Max Discharge');

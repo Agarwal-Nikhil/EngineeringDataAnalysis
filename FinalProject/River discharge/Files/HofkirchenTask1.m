@@ -44,20 +44,20 @@ min_DailyMinDischargeHofkirchen=min(MinHofkirchen);
 range_DailyMeanDischargeHofkirchen=range(MeanHofkirchen);
 range_DailyMaxDischargeHofkirchen=range(MaxHofkirchen);
 range_DailyMinDischargeHofkirchen=range(MinHofkirchen);
-%% Quantile/Outlier
+%% Quartile/Outlier
 
 p=[0.25, 0.5, 0.75];
-Quantile_DailyMeanDischargeHofkirchen= quantile(MeanHofkirchen,p);
-lowOutliers_DailyMeanDischargeHofkirchen= sum(MeanHofkirchen<(Quantile_DailyMeanDischargeHofkirchen(1)-3*(Quantile_DailyMeanDischargeHofkirchen(3)-Quantile_DailyMeanDischargeHofkirchen(2))) );
-highOutliers_DailyMeanDischargeHofkirchen= sum(MeanHofkirchen>(Quantile_DailyMeanDischargeHofkirchen(3)+3*(Quantile_DailyMeanDischargeHofkirchen(3)-Quantile_DailyMeanDischargeHofkirchen(2))) );
+Quartile_DailyMeanDischargeHofkirchen= quantile(MeanHofkirchen,p);
+lowOutliers_DailyMeanDischargeHofkirchen= sum(MeanHofkirchen<(Quartile_DailyMeanDischargeHofkirchen(1)-3*(Quartile_DailyMeanDischargeHofkirchen(3)-Quartile_DailyMeanDischargeHofkirchen(2))) );
+highOutliers_DailyMeanDischargeHofkirchen= sum(MeanHofkirchen>(Quartile_DailyMeanDischargeHofkirchen(3)+3*(Quartile_DailyMeanDischargeHofkirchen(3)-Quartile_DailyMeanDischargeHofkirchen(2))) );
 
-Quantile_DailyMaxDischargeHofkirchen= quantile(MaxHofkirchen,p);
-lowOutliers_DailyMaxDischargeHofkirchen= sum(MaxHofkirchen<(Quantile_DailyMaxDischargeHofkirchen(1)-3*(Quantile_DailyMaxDischargeHofkirchen(3)-Quantile_DailyMaxDischargeHofkirchen(2))) );
-highOutliers_DailyMaxDischargeHofkirchen= sum(MaxHofkirchen>(Quantile_DailyMaxDischargeHofkirchen(3)+3*(Quantile_DailyMaxDischargeHofkirchen(3)-Quantile_DailyMaxDischargeHofkirchen(2))) );
+Quartile_DailyMaxDischargeHofkirchen= quantile(MaxHofkirchen,p);
+lowOutliers_DailyMaxDischargeHofkirchen= sum(MaxHofkirchen<(Quartile_DailyMaxDischargeHofkirchen(1)-3*(Quartile_DailyMaxDischargeHofkirchen(3)-Quartile_DailyMaxDischargeHofkirchen(2))) );
+highOutliers_DailyMaxDischargeHofkirchen= sum(MaxHofkirchen>(Quartile_DailyMaxDischargeHofkirchen(3)+3*(Quartile_DailyMaxDischargeHofkirchen(3)-Quartile_DailyMaxDischargeHofkirchen(2))) );
 
-Quantile_DailyMinDischargeHofkirchen= quantile(MinHofkirchen,p);
-lowOutliers_DailyMinDischargeHofkirchen= sum(MinHofkirchen<(Quantile_DailyMinDischargeHofkirchen(1)-3*(Quantile_DailyMinDischargeHofkirchen(3)-Quantile_DailyMinDischargeHofkirchen(2))) );
-highOutliers_DailyMinDischargeHofkirchen= sum(MinHofkirchen>(Quantile_DailyMinDischargeHofkirchen(3)+3*(Quantile_DailyMinDischargeHofkirchen(3)-Quantile_DailyMinDischargeHofkirchen(2))) );
+Quartile_DailyMinDischargeHofkirchen= quantile(MinHofkirchen,p);
+lowOutliers_DailyMinDischargeHofkirchen= sum(MinHofkirchen<(Quartile_DailyMinDischargeHofkirchen(1)-3*(Quartile_DailyMinDischargeHofkirchen(3)-Quartile_DailyMinDischargeHofkirchen(2))) );
+highOutliers_DailyMinDischargeHofkirchen= sum(MinHofkirchen>(Quartile_DailyMinDischargeHofkirchen(3)+3*(Quartile_DailyMinDischargeHofkirchen(3)-Quartile_DailyMinDischargeHofkirchen(2))) );
 
 %% Histogram
 figure(2)
@@ -85,5 +85,5 @@ cdfplot(MaxHofkirchen)
 
 ha = axes('Position',[0 0 1 1],'Xlim',[0 1],'Ylim',[0 1],'Box','off','Visible','off','Units','normalized', 'clipping' , 'off');
 
-text(0.5, 1,'\bf Plot of some descriptive Satatistics of Isar','HorizontalAlignment' ,'center','VerticalAlignment', 'top')
+text(0.5, 1,'\bf Plot of some descriptive Satatistics of Danube','HorizontalAlignment' ,'center','VerticalAlignment', 'top')
 

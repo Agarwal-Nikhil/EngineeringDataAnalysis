@@ -44,20 +44,20 @@ min_DailyMinDischargePlatting=min(MinPlatting);
 range_DailyMeanDischargePlatting=range(MeanPlatting);
 range_DailyMaxDischargePlatting=range(MaxPlatting);
 range_DailyMinDischargePlatting=range(MinPlatting);
-%% Quantile/Outlier
+%% Quartile/Outlier
 
 p=[0.25, 0.5, 0.75];
-Quantile_DailyMeanDischargePlatting= quantile(MeanPlatting,p);
-lowOutliers_DailyMeanDischargePlatting= sum(MeanPlatting<(Quantile_DailyMeanDischargePlatting(1)-3*(Quantile_DailyMeanDischargePlatting(3)-Quantile_DailyMeanDischargePlatting(2))) );
-highOutliers_DailyMeanDischargePlatting= sum(MeanPlatting>(Quantile_DailyMeanDischargePlatting(3)+3*(Quantile_DailyMeanDischargePlatting(3)-Quantile_DailyMeanDischargePlatting(2))) );
+Quartile_DailyMeanDischargePlatting= quantile(MeanPlatting,p);
+lowOutliers_DailyMeanDischargePlatting= sum(MeanPlatting<(Quartile_DailyMeanDischargePlatting(1)-3*(Quartile_DailyMeanDischargePlatting(3)-Quartile_DailyMeanDischargePlatting(2))) );
+highOutliers_DailyMeanDischargePlatting= sum(MeanPlatting>(Quartile_DailyMeanDischargePlatting(3)+3*(Quartile_DailyMeanDischargePlatting(3)-Quartile_DailyMeanDischargePlatting(2))) );
 
-Quantile_DailyMaxDischargePlatting= quantile(MaxPlatting,p);
-lowOutliers_DailyMaxDischargePlatting= sum(MaxPlatting<(Quantile_DailyMaxDischargePlatting(1)-3*(Quantile_DailyMaxDischargePlatting(3)-Quantile_DailyMaxDischargePlatting(2))) );
-highOutliers_DailyMaxDischargePlatting= sum(MaxPlatting>(Quantile_DailyMaxDischargePlatting(3)+3*(Quantile_DailyMaxDischargePlatting(3)-Quantile_DailyMaxDischargePlatting(2))) );
+Quartile_DailyMaxDischargePlatting= quantile(MaxPlatting,p);
+lowOutliers_DailyMaxDischargePlatting= sum(MaxPlatting<(Quartile_DailyMaxDischargePlatting(1)-3*(Quartile_DailyMaxDischargePlatting(3)-Quartile_DailyMaxDischargePlatting(2))) );
+highOutliers_DailyMaxDischargePlatting= sum(MaxPlatting>(Quartile_DailyMaxDischargePlatting(3)+3*(Quartile_DailyMaxDischargePlatting(3)-Quartile_DailyMaxDischargePlatting(2))) );
 
-Quantile_DailyMinDischargePlatting= quantile(MinPlatting,p);
-lowOutliers_DailyMinDischargePlatting= sum(MinPlatting<(Quantile_DailyMinDischargePlatting(1)-3*(Quantile_DailyMinDischargePlatting(3)-Quantile_DailyMinDischargePlatting(2))) );
-highOutliers_DailyMinDischargePlatting= sum(MinPlatting>(Quantile_DailyMinDischargePlatting(3)+3*(Quantile_DailyMinDischargePlatting(3)-Quantile_DailyMinDischargePlatting(2))) );
+Quartile_DailyMinDischargePlatting= quantile(MinPlatting,p);
+lowOutliers_DailyMinDischargePlatting= sum(MinPlatting<(Quartile_DailyMinDischargePlatting(1)-3*(Quartile_DailyMinDischargePlatting(3)-Quartile_DailyMinDischargePlatting(2))) );
+highOutliers_DailyMinDischargePlatting= sum(MinPlatting>(Quartile_DailyMinDischargePlatting(3)+3*(Quartile_DailyMinDischargePlatting(3)-Quartile_DailyMinDischargePlatting(2))) );
 
 %% Histogram
 figure(1)
@@ -85,4 +85,4 @@ cdfplot(MaxHofkirchen)
 
 ha = axes('Position',[0 0 1 1],'Xlim',[0 1],'Ylim',[0 1],'Box','off','Visible','off','Units','normalized', 'clipping' , 'off');
 
-text(0.5, 1,'\bf Plot of some descriptive Satatistics of Danube','HorizontalAlignment' ,'center','VerticalAlignment', 'top')
+text(0.5, 1,'\bf Plot of some descriptive Satatistics of Isar','HorizontalAlignment' ,'center','VerticalAlignment', 'top')
