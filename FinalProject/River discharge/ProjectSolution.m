@@ -5,7 +5,7 @@
 % RIVER FLOW ANALYSIS ON ISAR AND DANUBE
 % 
 %
-%By Abhijeet Parida and Nikhil Agarwal
+%By Abhijeet Parida(03679676) and Nikhil Agarwal(03681647)
 
 %%
 close all
